@@ -1,7 +1,8 @@
 import { Parser } from 'htmlparser2'
 import { DomHandler } from 'domhandler'
-import render from 'dom-serializer'
-import type { ChildNode, DomHandlerOptions, Element } from 'domhandler'
+import rawRender from 'dom-serializer'
+import type { DomSerializerOptions } from 'dom-serializer'
+import type { ChildNode, DomHandlerOptions, Element, AnyNode } from 'domhandler'
 import type { ParserOptions } from 'htmlparser2'
 import defu from 'defu'
 
@@ -17,7 +18,8 @@ export function parse (
   chunk: string,
   options: UserDefinedOptions = {}
 ): Promise<ChildNode[]> {
-  const opt = defu(options, {})
+  const defaultOptions: UserDefinedOptions = {}
+  const opt = defu(options, defaultOptions)
   return new Promise((resolve, reject) => {
     const handler = new DomHandler(
       (error, dom) => {
@@ -36,4 +38,19 @@ export function parse (
     parser.end()
   })
 }
-export { render }
+
+export function render (
+  node: AnyNode | ArrayLike<AnyNode>,
+  options: DomSerializerOptions = {}
+) {
+  const defaultOptions: DomSerializerOptions = {
+    // encodeEntities: false,
+    selfClosingTags: false,
+    decodeEntities: false
+    // encodeEntities: false
+  }
+  const opt = defu(options, defaultOptions)
+  return rawRender(node, opt)
+}
+
+export { rawRender }

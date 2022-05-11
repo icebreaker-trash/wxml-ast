@@ -1,26 +1,48 @@
-# npm-lib-template
+# wxml-ast
 
-本人用于编写的一个 `npm` 包的一个模板
+## Introduction
 
-- 使用 `tsc` 或者 `rollup` 打包
-- 使用 `jest` 设置作为单元测试
-- 使用 `eslint` 来规范代码风格，默认风格为 `standard`
-- 输出 `dist` -> `cjs`,`esm` and `.d.ts`
+解析 `wxml` 并进行操纵和渲染
 
-## scripts
+## APIs
 
-### rename
+### `parse`
 
-执行 `npm run init:rename`
- 
-作用为替换 `package.json` 中默认包含的所有名称为 `npm-lib-template` 的字段
+解析 `wxml` 并返回 `wxml-ast`
 
-默认替换为新建代码仓库的文件夹名称！
+`wxml-ast` 可使用 [domutils](https://domutils.js.org/modules.html) 进行操纵(已内置在此 `lib` 中)
 
-### bin
+#### Parameters:
 
-执行 `npm run init:bin`
- 
-作用为 `package.json`  添加 `files` 和 `bin`，同时生成 `bin/{{pkg.name}}.js` 和 `src/cli.ts` 文件
+| Name      | Type                 | Default value | Description    |
+| :-------- | :------------------- | :------------ | :------------- |
+| `chunk`   | `string`             | -             | `wxml` 字符串  |
+| `options` | `UserDefinedOptions` | {}            | 改变序列化行为 |
 
+##### `UserDefinedOptions`
 
+```ts
+export interface UserDefinedOptions {
+  // https://github.com/fb55/htmlparser2
+  parserOptions?: ParserOptions
+  // https://github.com/fb55/domhandler
+  domHandlerOptions?: DomHandlerOptions
+  elementCB?: (element: Element) => void
+}
+```
+
+### `render`
+
+根据 `wxml-ast` 渲染 `wxml`
+#### Parameters:
+
+| Name      | Type                                                                                        | Default value | Description          |
+| :-------- | :------------------------------------------------------------------------------------------ | :------------ | :------------------- |
+| `node`    | `Node` \| `Node[]`                                                                          | -             | 节点需要被渲染的节点 |
+| `options` | [`DomSerializerOptions`](https://github.com/cheeriojs/dom-serializer/blob/master/README.md) | {}            | 改变序列化行为       |
+
+### `export * from 'domutils'`
+
+从 `domutils` 导出的操纵 `ast` 方法
+
+[文档](https://domutils.js.org/modules.html)
