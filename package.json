@@ -1,7 +1,7 @@
 {
   "name": "wxml-ast",
-  "version": "0.0.2",
-  "description": "wxml-ast",
+  "version": "0.0.3",
+  "description": "解析wxml转化为ast，进行语法树的操纵，并生成新的wxml代码",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
@@ -26,7 +26,16 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "keywords": [],
+  "keywords": [
+    "wxml",
+    "ast",
+    "parse",
+    "render",
+    "wxml-ast",
+    "weapp",
+    "mp",
+    "miniprogram"
+  ],
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {
