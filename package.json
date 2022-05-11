@@ -1,7 +1,7 @@
 {
-  "name": "npm-lib-template",
-  "version": "1.0.0",
-  "description": "npm-lib-template",
+  "name": "wxml-ast",
+  "version": "0.0.1",
+  "description": "wxml-ast",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sonofmagic/npm-lib-template.git"
+    "url": "git+https://github.com/sonofmagic/wxml-ast.git"
   },
   "files": [
     "dist"
@@ -30,9 +30,9 @@
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sonofmagic/npm-lib-template/issues"
+    "url": "https://github.com/sonofmagic/wxml-ast/issues"
   },
-  "homepage": "https://github.com/sonofmagic/npm-lib-template#readme",
+  "homepage": "https://github.com/sonofmagic/wxml-ast#readme",
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.0",
@@ -48,12 +48,17 @@
     "cross-env": "^7.0.3",
     "defu": "^6.0.0",
     "del": "^6.0.0",
+    "dom-serializer": "^2.0.0",
+    "domhandler": "^5.0.3",
+    "domutils": "^3.0.1",
     "eslint": "8.15.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-promise": "6.0.0",
+    "htmlparser2": "^8.0.1",
     "jest": "^28.1.0",
+    "redent": "3.0.0",
     "rollup": "^2.72.1",
     "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^28.0.2",
