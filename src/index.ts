@@ -6,7 +6,7 @@ import type { ChildNode, DomHandlerOptions, Element, AnyNode } from 'domhandler'
 import type { ParserOptions } from 'htmlparser2'
 import defu from 'defu'
 
-export * from 'domutils'
+import * as domutils from 'domutils'
 // import type {} from 'dom-serializer'
 export interface UserDefinedOptions {
   parserOptions?: ParserOptions
@@ -53,4 +53,4 @@ export function render (
   return rawRender(node, opt)
 }
 
-export { rawRender }
+export { rawRender, domutils }
