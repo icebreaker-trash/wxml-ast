@@ -1,18 +1,13 @@
 import { Parser } from 'htmlparser2'
 import { DomHandler } from 'domhandler'
-import rawRender from 'dom-serializer'
-import type { DomSerializerOptions } from 'dom-serializer'
-import type { ChildNode, DomHandlerOptions, Element, AnyNode } from 'domhandler'
-import type { ParserOptions } from 'htmlparser2'
+import rawRender from 'wxml-dom-serializer'
 import defu from 'defu'
-
-import * as domutils from 'domutils'
-// import type {} from 'dom-serializer'
-export interface UserDefinedOptions {
-  parserOptions?: ParserOptions
-  domHandlerOptions?: DomHandlerOptions
-  elementCB?: (element: Element) => void
-}
+import type {
+  UserDefinedOptions,
+  DomSerializerOptions,
+  ChildNode,
+  AnyNode
+} from './types'
 
 export function parse (
   chunk: string,
@@ -52,5 +47,3 @@ export function render (
   const opt = defu(options, defaultOptions)
   return rawRender(node, opt)
 }
-
-export { rawRender, domutils }

@@ -1,4 +1,5 @@
-import { parse, rawRender, render } from '@/index'
+import { parse, render } from '@/index'
+import rawRender from 'dom-serializer'
 import redent from 'redent'
 describe('[Default]', () => {
   test('attr-name-with-space-after-000', async () => {
@@ -135,7 +136,7 @@ describe('[Default]', () => {
     )
     const str = render(nodes)
     expect(str).toBe(
-      '<view class="view-class {{someClass}}">\n    <text>{{a <= b ? c : d}}</text>\n    <include src="../some-template.wxml">\n  </include></view>'
+      '<view class="view-class {{someClass}}">\n    <text>{{a <= b ? c : d}}</text>\n    <include src="../some-template.wxml">\n  </view>'
     )
   })
 
