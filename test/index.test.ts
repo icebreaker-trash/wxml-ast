@@ -1,5 +1,5 @@
 import { parse, render } from '@/index'
-import rawRender from 'dom-serializer'
+import rawRender from 'wxml-dom-serializer'
 import redent from 'redent'
 describe('[Default]', () => {
   test('attr-name-with-space-after-000', async () => {
@@ -136,7 +136,7 @@ describe('[Default]', () => {
     )
     const str = render(nodes)
     expect(str).toBe(
-      '<view class="view-class {{someClass}}">\n    <text>{{a <= b ? c : d}}</text>\n    <include src="../some-template.wxml">\n  </view>'
+      '<view class="view-class {{someClass}}">\n    <text>{{a <= b ? c : d}}</text>\n    <include src="../some-template.wxml">\n  </include></view>'
     )
   })
 
@@ -219,7 +219,19 @@ describe('[Default]', () => {
     )
     const str = rawRender(nodes)
     expect(str).toBe(
-      '<wxs module="status">\n      function get(index, active) {\n        if (index &lt; active) {\n          return &apos;finish&apos;;\n        } else if (index === active) {\n          return &apos;process&apos;;\n        }\n      \n        return &apos;inactive&apos;;\n      }\n      \n      module.exports = get;\n      </wxs>'
+      `<wxs module="status">
+      function get(index, active) {
+        if (index < active) {
+          return 'finish';
+        } else if (index === active) {
+          return 'process';
+        }
+      
+        return 'inactive';
+      }
+      
+      module.exports = get;
+      </wxs>`
     )
   })
 

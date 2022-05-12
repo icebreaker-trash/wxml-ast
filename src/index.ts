@@ -40,7 +40,7 @@ export function render (
 ) {
   const defaultOptions: DomSerializerOptions = {
     // encodeEntities: false,
-    selfClosingTags: true,
+    selfClosingTags: false,
     decodeEntities: false
     // encodeEntities: false
   }
