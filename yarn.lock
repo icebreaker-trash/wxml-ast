@@ -3691,10 +3691,10 @@ write-file-atomic@^4.0.1:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.7"
 
-wxml-dom-serializer@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmmirror.com/wxml-dom-serializer/-/wxml-dom-serializer-2.0.1.tgz#cc2998c6fb4ee382f2e3298439d9fdec4457fc5c"
-  integrity sha512-4pIwU+X9SrmoZ/JhDXXWKTJGQVc9tQ2wueswizd1f1kD1dqWt8TLSzLTIS5oVEr2/cq54ywzyUHmCnp2wVdbcg==
+wxml-dom-serializer@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmmirror.com/wxml-dom-serializer/-/wxml-dom-serializer-2.0.2.tgz#eed72aa65d2bac522777568162d4bc0b712b3f23"
+  integrity sha512-9u7eDRNT/NMMiUcBQgP+A5S+JUVJWyGZMIhslkurINPyVTy+aNjBjwjewM2LhCkyvx9R7FR0dMXJnuPv5qAugA==
   dependencies:
     domelementtype "^2.3.0"
     domhandler "^5.0.3"
