@@ -10,16 +10,21 @@ const isDev = process.env.NODE_ENV === 'development'
 
 /** @type {import('rollup').RollupOptions} */
 const config = {
-  input: 'src/index.ts',
+  input: { index: 'src/index.ts', domutils: 'src/domutils.ts' },
   // { index: 'src/index.ts', cli: 'src/cli.ts' },
   output: [
     {
-      file: pkg.main,
+      dir: 'dist',
       format: 'cjs',
       sourcemap: isDev,
       exports: 'auto'
     },
-    { format: 'esm', file: pkg.module, sourcemap: isDev }
+    {
+      format: 'esm',
+      dir: 'dist',
+      sourcemap: isDev,
+      entryFileNames: '[name].[format].js'
+    }
     // {
     //   dir: 'dist',
     //   format: 'cjs',

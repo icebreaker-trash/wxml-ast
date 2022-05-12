@@ -57,7 +57,7 @@ describe('[Default]', () => {
   test('attr-value-with-double-quote-001 with render', async () => {
     const nodes = await parse("<tag name='\"'></tag>")
     const str = render(nodes)
-    expect(str).toBe('<tag name="&quot;"></tag>')
+    expect(str).toBe('<tag name="\'"></tag>')
   })
 
   test('attr-value-with-gt-000', async () => {
@@ -359,7 +359,7 @@ describe('[Default]', () => {
     )
     const str = render(nodes)
     expect(str).toBe(
-      '<view class="view-class {{someClass || &quot;otherClass&quot;}}">\n    <text>{{a<=b?c:d}}</text>\n    <include src="../some-template.wxml">\n  </include></view>'
+      '<view class="view-class {{someClass || \'otherClass\'}}">\n    <text>{{a<=b?c:d}}</text>\n    <include src="../some-template.wxml">\n  </include></view>'
     )
   })
 
